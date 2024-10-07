@@ -253,7 +253,7 @@ function onSetFilterBy({ txt, minRate }) {
 
 function renderLocStats() {
     locService.getLocCountByRateMap().then(stats => {
-        console.log('stats:', stats)
+        // console.log('stats:', stats)
         handleStats(stats, 'loc-stats-rate')
     })
 }

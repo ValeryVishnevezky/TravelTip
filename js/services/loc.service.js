@@ -49,13 +49,18 @@ function query() {
                 const startIdx = gPageIdx * PAGE_SIZE
                 locs = locs.slice(startIdx, startIdx + PAGE_SIZE)
             }
-
+            console.log("gSortBy:", gSortBy)
             if (gSortBy.rate !== undefined) {
                 locs.sort((p1, p2) => (p1.rate - p2.rate) * gSortBy.rate)
             } else if (gSortBy.name !== undefined) {
                 locs.sort((p1, p2) => p1.name.localeCompare(p2.name) * gSortBy.name)
+            } else if (gSortBy.date !== undefined) {
+                console.log("updatedAt:", gSortBy.date)
+                locs.sort((p1, p2) => (p1.updatedAt - p2.updatedAt) * gSortBy.date)
+            } else if (gSortBy.date !== undefined) {
+                console.log("createdAt:", gSortBy.date)
+                locs.sort((p1, p2) => (p1.createdAt - p2.createdAt) * gSortBy.date)
             }
-
             return locs
         })
 }
