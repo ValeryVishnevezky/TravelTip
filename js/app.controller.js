@@ -4,6 +4,8 @@ import { mapService } from './services/map.service.js'
 
 window.onload = onInit
 
+var gUserPos = null
+
 // To make things easier in this project structure 
 // functions that are called from DOM are defined on a global app object
 window.app = {
@@ -34,9 +36,13 @@ function onInit() {
 
 function renderLocs(locs) {
     const selectedLocId = getLocIdFromQueryParams()
-    // console.log('locs:', locs)
     var strHTML = locs.map(loc => {
         const className = (loc.id === selectedLocId) ? 'active' : ''
+        let distanceStr = ''
+        if (gUserPos) {
+            const distance = utilService.getDistance(gUserPos, loc.geo)
+            distanceStr = `<p>Distance: ${distance} km</p>`
+        }
         return `
         <li class="loc ${className}" data-id="${loc.id}">
             <h4>  
@@ -45,16 +51,16 @@ function renderLocs(locs) {
             </h4>
             <p class="muted">
                 Created: ${utilService.elapsedTime(loc.createdAt)}
-                ${(loc.createdAt !== loc.updatedAt) ?
-                ` | Updated: ${utilService.elapsedTime(loc.updatedAt)}`
-                : ''}
+                ${(loc.createdAt !== loc.updatedAt) ? ` | Updated: ${utilService.elapsedTime(loc.updatedAt)}` : ''}
             </p>
+            ${distanceStr} <!-- Inject the distance here -->
             <div class="loc-btns">     
                <button title="Delete" onclick="app.onRemoveLoc('${loc.id}')">🗑️</button>
                <button title="Edit" onclick="app.onUpdateLoc('${loc.id}')">✏️</button>
                <button title="Select" onclick="app.onSelectLoc('${loc.id}')">🗺️</button>
             </div>     
-        </li>`}).join('')
+        </li>`
+    }).join('')
 
     const elLocList = document.querySelector('.loc-list')
     elLocList.innerHTML = strHTML || 'No locs to show'
@@ -129,6 +135,7 @@ function loadAndRenderLocs() {
 function onPanToUserPos() {
     mapService.getUserPosition()
         .then(latLng => {
+            gUserPos = latLng
             mapService.panTo({ ...latLng, zoom: 15 })
             unDisplayLoc()
             loadAndRenderLocs()
