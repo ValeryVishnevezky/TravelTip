@@ -18,11 +18,18 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
         .then(() => {
             gMap = new google.maps.Map(
                 document.querySelector('.map'), {
-                center: { lat, lng },
-                zoom: 8
-            })
+                    center: { lat, lng },
+                    zoom: 8
+                }
+            )
+            addClickListener(window.app.onAddLoc)
+        })
+        .catch(err => {
+            console.error('Error initializing map:', err)
         })
 }
+
+
 
 function panTo({ lat, lng, zoom = 15 }) {
     const laLatLng = new google.maps.LatLng(lat, lng)
@@ -59,10 +66,13 @@ function lookupAddressGeo(geoOrAddress) {
 
 }
 
-function addClickListener(cb) {
+function addClickListener(callback) {
     gMap.addListener('click', (mapsMouseEvent) => {
-        const geo = { lat: mapsMouseEvent.latLng.lat(), lng: mapsMouseEvent.latLng.lng() }
-        lookupAddressGeo(geo).then(cb)
+        const geo = { 
+            lat: mapsMouseEvent.latLng.lat(), 
+            lng: mapsMouseEvent.latLng.lng() 
+        }
+        lookupAddressGeo(geo).then(callback)
     })
 }
 
