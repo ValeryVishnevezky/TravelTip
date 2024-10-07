@@ -56,9 +56,9 @@ function renderLocs(locs) {
             </p>
             ${distanceStr} <!-- Inject the distance here -->
             <div class="loc-btns">     
-               <button title="Delete" onclick="app.onRemoveLoc('${loc.id}')">🗑️</button>
-               <button title="Edit" onclick="app.onUpdateLoc('${loc.id}')">✏️</button>
-               <button title="Select" onclick="app.onSelectLoc('${loc.id}')">🗺️</button>
+               <button title="Delete" onclick="app.onRemoveLoc('${loc.id}')"><i class="fa-solid fa-trash"></i></button>
+               <button title="Edit" onclick="app.onUpdateLoc('${loc.id}')"><i class="fa-solid fa-pen"></i></button>
+               <button title="Select" onclick="app.onSelectLoc('${loc.id}')"><i class="fa-solid fa-map-location-dot"></i></button>
             </div>     
         </li>`
     }).join('')

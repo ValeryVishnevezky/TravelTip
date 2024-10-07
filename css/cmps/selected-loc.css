@@ -1,6 +1,6 @@
 .selected-loc {
     background-color: var(--bg3);
-    color: whitesmoke;
+    color: white;
     max-height: 0em;
     height: 0;
     overflow: hidden;

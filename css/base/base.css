@@ -22,11 +22,12 @@ header h1 {
 .form-search{
     display: flex;
     align-items: center;
-    gap: 5px;
+    justify-content: center;
+    gap: 7px;
 }
 
 input[type=text],input[type=number] {
-    line-height: 2.2em;
+    line-height: 2.3em;
     border-radius: .3em;
     padding-left: 10px;
     background-color: var(--color1);
@@ -34,19 +35,20 @@ input[type=text],input[type=number] {
 }
 
 button {
-    color: whitesmoke;
-    font-size: 0.9rem;
+    color: rgb(30, 119, 175);
+    font-size: 1.1rem;
     border: 0;
     border-radius: .3em;
     background-color: #ffffff;
-    padding: 5.5px 10px;
+    padding: 5px 10px;
+    padding-bottom: 7px;
     cursor: pointer;
     transition: background-color .5s;
 }
 
 button:hover {
     color: var(--color2);
-    background-color: #91c1ff;
+    background-color: #e6f1ff;
 }
 
 .muted {

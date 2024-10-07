@@ -17,11 +17,11 @@
 
 .loc-list li {
   padding-bottom: 20px;
-  border-bottom: 1px solid #B0B0B0;
+  border-bottom: 1px solid #b0b0b0;
 }
-.loc-list li p{
-    margin: 10px 0;
-  }
+.loc-list li p {
+  margin: 10px 0;
+}
 .loc-list li h4 {
   display: flex;
   justify-content: space-between;
@@ -52,14 +52,16 @@
 }
 
 .btn-user-pos {
+  font-size: 1.1rem;
   background-color: var(--bg2);
-  background-image: url(../../img/user-loc.png);
   background-size: cover;
-  width: 2em;
-  height: 2em;
+  padding: 5px 10px;
+  padding-bottom: 7px;
+  background-color: white;
 }
+
 .btn-user-pos:hover {
-  background-color: whitesmoke;
+    background-color: #e6f1ff;
 }
 
 .loc-filter {

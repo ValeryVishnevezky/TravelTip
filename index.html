@@ -21,8 +21,9 @@
         </section>
         <form class="form-search" onsubmit="app.onSearchAddress(event)">
             <input type="text" name="address" placeholder="Search address" />
-            <button title="Search">🔍</button>
-            <button type="button" title="My Position" onclick="app.onPanToUserPos()" class="btn-user-pos">&nbsp;
+            <button title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button type="button" title="My Position" onclick="app.onPanToUserPos()" class="btn-user-pos">
+                <i class="fa-solid fa-crosshairs"></i>
             </button>
         </form>
     </header>
@@ -89,15 +90,17 @@
     </main>
     <footer class="footer">
         <p>
-            TravelTip made by Valery Vishnevezky 
+            <img class="logo-footer" src="img/image (1).png" alt="logo">
+             made by 
             <a href="https://github.com/ValeryVishnevezky" target="_blank" class="github-icon">
                 <i class="fab fa-github"></i>
             </a>
-            and Eran Yosef
+            Valery Vishnevezky
+            <i class="fa-solid fa-grip-lines-vertical"></i>
             <a href="https://github.com/eranyosef2" target="_blank" class="github-icon">
                 <i class="fab fa-github"></i>
             </a>
-           All Rights Reserved 
+            Eran Yosef
         </p>
     </footer>
     <pre class="debug" hidden></pre>
