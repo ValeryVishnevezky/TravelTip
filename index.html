@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <h1>TravelTip</h1>
+        <img class="logo-img" src="img/image (1).png" alt="logo">
         <section class="selected-loc">
             <h2>Location: <span class="loc-name"></span> <span class="loc-rate"></span></h2>
             <h4 class="loc-address"></h4>
@@ -26,19 +26,15 @@
         </form>
     </header>
     <main>
-        <div class="map"></div>
-        <div>
             <section class="locs-container">
                 <section class="loc-filter">
-                    <div>
                         <input type="text" placeholder="Search location"
-                            oninput="app.onSetFilterBy({txt: this.value})" />
-                    </div>
+                        oninput="app.onSetFilterBy({txt: this.value})" />
                     <div>
                         <label>
                             Min Rate:
                             <input type="range" min="0" max="5" value="0" class="filter-rate-range"
-                                onchange="this.title=this.value;app.onSetFilterBy({minRate: this.value})" />
+                            onchange="this.title=this.value;app.onSetFilterBy({minRate: this.value})" />
                         </label>
                     </div>
                     <p>
@@ -72,7 +68,7 @@
             </section>
         </div>
         <dialog id="locModal">
-         <form method="dialog">
+            <form method="dialog">
                 <h5 id="modalTitle">Add Location</h5>
                 <label>
                     Location Name : 
@@ -88,6 +84,7 @@
                 </menu>
             </form>
         </dialog>
+        <div class="map"></div>
     </main>
     <pre class="debug" hidden></pre>
     <div class="user-msg"></div>

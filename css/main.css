@@ -6,11 +6,9 @@
 
 @media (min-width: 750px) {
     main {
-        display: flex;
-        flex-direction: row-reverse;
-    }
-    .locs-container {
-        width: 30vw;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 15px;
     }
 }
 
