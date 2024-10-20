@@ -1,4 +1,7 @@
 # TravelTip
+https://valeryvishnevezky.github.io/TravelTip/  
+You're welcome to explore and use our app!  
+  
 #### The app that gets you somewhere
 
 
